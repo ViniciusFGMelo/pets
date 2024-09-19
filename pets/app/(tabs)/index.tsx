@@ -1,70 +1,395 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image, ScrollView } from 'react-native';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faUser, faPlayCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationProp } from '@react-navigation/native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const Stack = createStackNavigator();
 
-export default function HomeScreen() {
+const LoginScreen = ({navigation}: { navigation: NavigationProp<any> }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    if (email === 'test@email.com' && password === 'test') {
+      Alert.alert('Sucesso!', 'Login realizado com sucesso!');
+    } else {
+      Alert.alert('Erro!', 'Email ou senha incorretos!');
+    }
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <Text style={styles.title}>Pets</Text>
+      <Image  source={require('../../assets/images/dog1.png')} style={styles.icon} />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        onChangeText={(text) => setEmail(text)}
+        value={email}
+      />
+      <TextInput 
+        style={styles.input}
+        placeholder="Senha"
+        onChangeText={(text) => setPassword(text)}
+        value={password}
+        secureTextEntry={true}
+      />
+      <Text style={styles.error}>
+        {email === '' || password === '' ? '' : 'Email ou senha incorretos'}
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <FontAwesomeIcon icon={faPlayCircle} size={20} color="#65558F" style={styles.buttonIcon} />
+        <Text style={styles.buttonText}>Entrar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registration')}>
+        <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+        <Text style={styles.buttonText}>Primeiro Acesso</Text>
+      </TouchableOpacity>
+    </View>
   );
-}
+};
+
+const RegistrationScreen = ({navigation}: { navigation: NavigationProp<any> }) => {
+  return (
+    <View style={styles.registrationContainer}>
+      <Text style={styles.title}>Seleção de Perfil</Text>
+      <Image source={require('../../assets/images/dog2.png')} style={styles.icon} />
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AdotanteRegistration')}>
+        <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+        <Text style={styles.buttonText}>Quero adotar</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AbrigoRegistration')}>
+        <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+        <Text style={styles.buttonText}>Abrigo</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const AdotanteRegistrationScreen = ({navigation}: { navigation: NavigationProp<any> }) => {
+  const [nome, setNome] = useState('');
+  const [nascimento, setNascimento] = useState('');
+  const [sexo, setSexo] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [email, setEmail] = useState('');
+  const [cep, setCep] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [estado, setEstado] = useState('');
+  const [bairro, setBairro] = useState('');
+  const [rua, setRua] = useState('');
+  const [numero, setNumero] = useState('');
+  const [senha, setSenha] = useState('');
+  const [repetirSenha, setRepetirSenha] = useState('');
+
+  const handleAdotanteRegistration = () => {
+    // TO DO: implement adotante registration logic
+    Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
+  };
+
+  return (
+    <ScrollView>
+      <View style={styles.registrationContainer}>
+        <Text style={styles.title}>Cadastro Adotante</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Nome"
+          onChangeText={(text) => setNome(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Nascimento"
+          onChangeText={(text) => setNascimento(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Sexo"
+          onChangeText={(text) => setSexo(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Telefone"
+          keyboardType='numeric'
+          onChangeText={(text) => setTelefone(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType='email-address'
+          onChangeText={(text) => setEmail(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="CEP"
+          onChangeText={(text) => setCep(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Cidade"
+          onChangeText={(text) => setCidade(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Estado"
+          onChangeText={(text) => setEstado(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Bairro"
+          onChangeText={(text) => setBairro(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Rua"
+          onChangeText={(text) => setRua(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Número"
+          onChangeText={(text) => setNumero(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          onChangeText={(text) => setSenha(text)}
+          secureTextEntry={true}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Repetir Senha"
+          onChangeText={(text) => setRepetirSenha(text)}
+          secureTextEntry={true}
+        />
+        <TouchableOpacity style={styles.button1} onPress={handleAdotanteRegistration}>
+          <Text style={styles.buttonText1}>Criar Conta</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
+          <Text style={styles.buttonText2}>Cancelar</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
+
+const AbrigoRegistrationScreen = ({navigation}: { navigation: NavigationProp<any> }) => {
+  const [nomeInstituicao, setNomeInstituicao] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [email, setEmail] = useState('');
+  const [cep, setCep] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [estado, setEstado] = useState('');
+  const [bairro, setBairro] = useState ('');
+  const [rua, setRua] = useState('');
+  const [numero, setNumero] = useState('');
+  const [senha, setSenha] = useState('');
+  const [repetirSenha, setRepetirSenha] = useState('');
+
+  const handleAbrigoRegistration = () => {
+    // TO DO: implement abrigo registration logic
+    Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
+  };
+
+  return (
+    <ScrollView>
+      <View style={styles.registrationContainer}>
+        <Text style={styles.title}>Cadastro de Abrigo</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Nome da Instituição"
+          onChangeText={(text) => setNomeInstituicao(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Telefone"
+          keyboardType='numeric'
+          onChangeText={(text) => setTelefone(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          keyboardType='email-address'
+          onChangeText={(text) => setEmail(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="CEP"
+          onChangeText={(text) => setCep(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Cidade"
+          onChangeText={(text) => setCidade(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Estado"
+          onChangeText={(text) => setEstado(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Bairro"
+          onChangeText={(text) => setBairro(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Rua"
+          onChangeText={(text) => setRua(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Número"
+          onChangeText={(text) => setNumero(text)}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Senha"
+          onChangeText={(text) => setSenha(text)}
+          secureTextEntry={true}
+          />
+        <TextInput
+          style={styles.input}
+          placeholder="Repetir Senha"
+          onChangeText={(text) => setRepetirSenha(text)}
+          secureTextEntry={true}
+          />
+        <TouchableOpacity style={styles.button1} onPress={handleAbrigoRegistration}>
+          <Text style={styles.buttonText1}>Criar Conta</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
+          <Text style={styles.buttonText2}>Cancelar</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
+
+const App = () => {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Registration" component={RegistrationScreen} />
+        <Stack.Screen name="AdotanteRegistration" component={AdotanteRegistrationScreen} />
+        <Stack.Screen name="AbrigoRegistration" component={AbrigoRegistrationScreen} />
+      </Stack.Navigator>
+    
+  );
+};
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: '#ECDFCC',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  loginContainer: {
+    width: '100%',
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+  registrationContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#ECE6F0',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+
+  icon: {
+    marginBottom: 20,
+    width: 150,
+    height: 150
+  },
+
+  input: {
+    height: 50,
+    width: 300,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 5,
+  },
+
+  error: {
+    color: 'red',
+    marginBottom: 10,
+  },
+
+  button: {
+    backgroundColor: '#F5F5F5',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    justifyContent: 'center',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+
+  buttonIcon: {
+    marginRight: 10,
+    color: '#65558F',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+
+  buttonText: {
+    color: '#65558F',
+    fontSize: 16,
+  },
+
+  buttonText1: {
+    color: 'white',
+    fontSize: 16,
+  },
+
+  button1: {
+    backgroundColor: '#2c2c2c',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buttonText2: {
+    color: 'white',
+    fontSize: 16,
+  },
+
+  button2: {
+    backgroundColor: '#EC221F',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
+
+export default App;
