@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet, Image, ScrollView } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUser, faPlayCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { NavigationContainer } from '@react-navigation/native';
+import { faUser, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationProp } from '@react-navigation/native';
+import { NavigationContainer, NavigationProp } from '@react-navigation/native';
 
 const Stack = createStackNavigator();
 
@@ -49,6 +47,10 @@ const LoginScreen = ({navigation}: { navigation: NavigationProp<any> }) => {
         <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
         <Text style={styles.buttonText}>Primeiro Acesso</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
+        <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+        <Text style={styles.buttonText}>Buscar Animais</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -91,7 +93,7 @@ const AdotanteRegistrationScreen = ({navigation}: { navigation: NavigationProp<a
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:'#ECE6F0', flex: 1}}>
       <View style={styles.registrationContainer}>
         <Text style={styles.title}>Cadastro Adotante</Text>
         <TextInput
@@ -193,7 +195,7 @@ const AbrigoRegistrationScreen = ({navigation}: { navigation: NavigationProp<any
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor:'#ECE6F0', flex: 1}}>
       <View style={styles.registrationContainer}>
         <Text style={styles.title}>Cadastro de Abrigo</Text>
         <TextInput
@@ -216,6 +218,7 @@ const AbrigoRegistrationScreen = ({navigation}: { navigation: NavigationProp<any
         <TextInput
           style={styles.input}
           placeholder="CEP"
+          keyboardType='numeric'
           onChangeText={(text) => setCep(text)}
           />
         <TextInput
@@ -266,14 +269,77 @@ const AbrigoRegistrationScreen = ({navigation}: { navigation: NavigationProp<any
   );
 };
 
+const BuscaAnimais = ({navigation}: { navigation: NavigationProp<any> }) => {
+  const [nomeInstituicao, setNomeInstituicao] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [bairro, setBairro] = useState ('');
+  const [raca, setRaca] = useState('');
+  const [porte, setPorte] = useState('');
+  const [sexo, setSexo] = useState('');
+  const [idade, setIdade] = useState('');
+
+  const handleBuscaAnimal = () => {
+    // TO DO: implement abrigo registration logic
+    Alert.alert('Busca Sucedida!');
+  };
+
+  return (
+    <ScrollView style={{backgroundColor:'#ECE6F0', flex: 1}}>
+      <View style={styles.buscaContainer}>
+        <Text style={styles.title}>Buscar por animais ou abrigos</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Nome da Instituição"
+          onChangeText={(text) => setNomeInstituicao(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Cidade"
+          onChangeText={(text) => setCidade(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Bairro"
+          onChangeText={(text) => setBairro(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Raca"
+          onChangeText={(text) => setRaca(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Porte"
+          onChangeText={(text) => setPorte(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Sexo"
+          onChangeText={(text) => setSexo(text)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Idade"
+          onChangeText={(text) => setIdade(text)}
+        />
+
+        <TouchableOpacity style={styles.button1} onPress={handleBuscaAnimal}>
+          <Text style={styles.buttonText1}>Buscar</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
+  );
+};
+
 const App = () => {
   return (
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Registration" component={RegistrationScreen} />
-        <Stack.Screen name="AdotanteRegistration" component={AdotanteRegistrationScreen} />
-        <Stack.Screen name="AbrigoRegistration" component={AbrigoRegistrationScreen} />
-      </Stack.Navigator>
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Registration" component={RegistrationScreen} />
+      <Stack.Screen name="AdotanteRegistration" component={AdotanteRegistrationScreen} />
+      <Stack.Screen name="AbrigoRegistration" component={AbrigoRegistrationScreen} />
+      <Stack.Screen name="BuscaAnimais" component={BuscaAnimais} />
+    </Stack.Navigator>
     
   );
 };
@@ -299,9 +365,9 @@ const styles = StyleSheet.create({
   },
 
   registrationContainer: {
+    backgroundColor: '#ECE6F0',
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#ECE6F0',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -390,6 +456,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  buscaContainer: {
+    padding: 50,
+    flex: 1,
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });
 
 export default App;
