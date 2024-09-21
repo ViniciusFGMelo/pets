@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
-import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet,Platform } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet } from 'react-native';
 
-class AbrigoRegistrationScreen extends Component {
+class BuscaAnimais extends Component {
   constructor(props) {
     super(props);
     this.state = {
       nomeInstituicao: '',
-      telefone: '',
-      email: '',
-      cep: '',
       cidade: '',
-      estado: '',
       bairro: '',
-      rua: '',
-      numero: '',
-      senha: '',
-      repetirSenha: '',
+      raca: '',
+      porte: '',
+      sexo: '',
+      idade: '',
     };
   }
 
@@ -23,110 +19,49 @@ class AbrigoRegistrationScreen extends Component {
     this.setState({ nomeInstituicao: value });
   };
 
-  setTelefone = (value) => {
-    this.setState({ telefone: value });
-  };
-
-  setEmail = (value) => {
-    this.setState({ email: value });
-  };
-
-  setCep = (value) => {
-    this.setState({ cep: value });
-  };
-
   setCidade = (value) => {
     this.setState({ cidade: value });
-  };
-
-  setEstado = (value) => {
-    this.setState({ estado: value });
   };
 
   setBairro = (value) => {
     this.setState({ bairro: value });
   };
 
-  setRua = (value) => {
-    this.setState({ rua: value });
+  setRaca = (value) => {
+    this.setState({ raca: value });
   };
 
-  setNumero = (value) => {
-    this.setState({ numero: value });
+  setPorte = (value) => {
+    this.setState({ porte: value });
   };
 
-  setSenha = (value) => {
-    this.setState({ senha: value });
+  setSexo = (value) => {
+    this.setState({ sexo: value });
   };
 
-  setRepetirSenha = (value) => {
-    this.setState({ repetirSenha: value });
+  setIdade = (value) => {
+    this.setState({ idade: value });
   };
 
-  handleAbrigoRegistration = () => {
-    const { nomeInstituicao, telefone, email, senha, repetirSenha } = this.state;
+  handleBuscaAnimal = () => {
+    const { nomeInstituicao, cidade, bairro, raca, porte, sexo, idade } = this.state;
 
-    const regex = /^.+@email\.com$/;
-
-    const { navigation } = this.props;
-
-
-    // Validações simples
-    if (!nomeInstituicao || !telefone || !regex.test(email) || !senha || senha !== repetirSenha) {
-        if (Platform.OS === 'web') {
-            window.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          } else {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          }
-      return;
-    }
-
-    // TO DO: implementar a lógica de registro do abrigo
-
-        if (Platform.OS === 'web') {
-            window.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
-          } 
-          else 
-          {
-            Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
-          }
-          navigation.goBack(); // Retorna à tela anterior após o registro
-    };
+    // Aqui você pode implementar a lógica de busca de animais
+    Alert.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
+  };
 
   render() {
-
     const { navigation } = this.props;
 
     return (
       <ScrollView style={{ backgroundColor: '#ECE6F0', flex: 1 }}>
-        <View style={styles.registrationContainer}>
-          <Text style={styles.title}>Cadastro de Abrigo</Text>
+        <View style={styles.buscaContainer}>
+          <Text style={styles.title}>Buscar por animais ou abrigos</Text>
           <TextInput
             style={styles.input}
             placeholder="Nome da Instituição"
             value={this.state.nomeInstituicao}
             onChangeText={this.setNomeInstituicao}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Telefone"
-            keyboardType="numeric"
-            value={this.state.telefone}
-            onChangeText={this.setTelefone}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-            value={this.state.email}
-            onChangeText={this.setEmail}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="CEP"
-            keyboardType="numeric"
-            value={this.state.cep}
-            onChangeText={this.setCep}
           />
           <TextInput
             style={styles.input}
@@ -136,48 +71,37 @@ class AbrigoRegistrationScreen extends Component {
           />
           <TextInput
             style={styles.input}
-            placeholder="Estado"
-            value={this.state.estado}
-            onChangeText={this.setEstado}
-          />
-          <TextInput
-            style={styles.input}
             placeholder="Bairro"
             value={this.state.bairro}
             onChangeText={this.setBairro}
           />
           <TextInput
             style={styles.input}
-            placeholder="Rua"
-            value={this.state.rua}
-            onChangeText={this.setRua}
+            placeholder="Raça"
+            value={this.state.raca}
+            onChangeText={this.setRaca}
           />
           <TextInput
             style={styles.input}
-            placeholder="Número"
-            value={this.state.numero}
-            onChangeText={this.setNumero}
+            placeholder="Porte"
+            value={this.state.porte}
+            onChangeText={this.setPorte}
           />
           <TextInput
             style={styles.input}
-            placeholder="Senha"
-            value={this.state.senha}
-            onChangeText={this.setSenha}
-            secureTextEntry={true}
+            placeholder="Sexo"
+            value={this.state.sexo}
+            onChangeText={this.setSexo}
           />
           <TextInput
             style={styles.input}
-            placeholder="Repetir Senha"
-            value={this.state.repetirSenha}
-            onChangeText={this.setRepetirSenha}
-            secureTextEntry={true}
+            placeholder="Idade"
+            value={this.state.idade}
+            onChangeText={this.setIdade}
           />
 
-          <TouchableOpacity style={styles.button1} onPress={this.handleAbrigoRegistration}>
-            <Text style={styles.buttonText1}>Criar Conta</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
-            <Text style={styles.buttonText2}>Cancelar</Text>
+          <TouchableOpacity style={styles.button1} onPress={this.handleBuscaAnimal}>
+            <Text style={styles.buttonText1}>Buscar</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -308,5 +232,4 @@ const styles = StyleSheet.create({
     }
   });
 
-
-export default AbrigoRegistrationScreen;
+export default BuscaAnimais;
