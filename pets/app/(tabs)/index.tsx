@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../../screens/login';
 import RegistrationScreen from '../../screens/registrationscreen';
 import AdotanteRegistrationScreen from '../../screens/adotante/cadastroAdotante';
 import AbrigoRegistrationScreen from '../../screens/abrigos/cadastroAbrigo';
 import BuscaAnimais from '../../screens/buscaAnimais';
+import CadastroUserScreen from '../../screens/CadastroUserScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +17,7 @@ const App = () => {
         <Stack.Screen name="AdotanteRegistration" component={AdotanteRegistrationScreen} />
         <Stack.Screen name="AbrigoRegistration" component={AbrigoRegistrationScreen} />
         <Stack.Screen name="BuscaAnimais" component={BuscaAnimais} />
+        <Stack.Screen name="CadastroUser" component={CadastroUserScreen} />
       </Stack.Navigator>
   );
 };
