@@ -10,7 +10,6 @@ class CadastroAnimal extends Component {
       idade: '',
       raca: '',
       sexo: '',
-      estado: '',
       peso: '',
       info_vacinacao: '',
     };
