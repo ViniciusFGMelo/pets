@@ -89,6 +89,10 @@ class LoginScreen extends Component {
           <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
           <Text style={styles.buttonText}>CadastroAnimal</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
+          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+          <Text style={styles.buttonText}>EdicaoAnimal</Text>
+        </TouchableOpacity>
       </View>
     );
   }

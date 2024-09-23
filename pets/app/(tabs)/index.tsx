@@ -7,6 +7,7 @@ import AbrigoRegistrationScreen from '../../screens/abrigos/cadastroAbrigo';
 import BuscaAnimais from '../../screens/buscaAnimais';
 import CadastroUserScreen from '../../screens/CadastroUserScreen';
 import CadastroAnimal from '../../screens/abrigos/CadastroAnimal';
+import EdicaoAnimal from '../../screens/abrigos/EdicaoAnimal';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const App = () => {
         <Stack.Screen name="BuscaAnimais" component={BuscaAnimais} />
         <Stack.Screen name="CadastroUser" component={CadastroUserScreen} />
         <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} />
+        <Stack.Screen name="EdicaoAnimal" component={EdicaoAnimal} />
       </Stack.Navigator>
   );
 };
