@@ -80,6 +80,8 @@ class BuscaAnimais extends Component {
                         value={this.state.bairro}
                         onChangeText={this.setBairro}
                     />
+                    <br></br>
+                    <br></br>
                     <TextInput
                         style={styles.input}
                         placeholder="Raça"
