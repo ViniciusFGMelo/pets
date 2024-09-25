@@ -79,19 +79,19 @@ class LoginScreen extends Component {
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
           <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Buscar Animais</Text>
+          <Text style={styles.buttonText}>Buscar Animais/Abrigo</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroUser')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('InfoAnimal')}>
           <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Cadastro User</Text>
+          <Text style={styles.buttonText}>Informações do Animal</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroAnimal')}>
           <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>CadastroAnimal</Text>
+          <Text style={styles.buttonText}>Cadastro Animal</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
           <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>EdicaoAnimal</Text>
+          <Text style={styles.buttonText}>Edicao Animal</Text>
         </TouchableOpacity>
       </View>
     );

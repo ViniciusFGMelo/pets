@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const CadastroUser = () => {
+const InfoAnimal = () => {
   return (
     <View style={styles.container}>
         <View style={styles.infoContainer}>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CadastroUser;
+export default InfoAnimal;
