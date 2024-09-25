@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Image, Alert, StyleSheet, Plat
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlayCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -50,50 +51,60 @@ class LoginScreen extends Component {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Pets</Text>
-        <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          onChangeText={this.setEmail}
-          value={email}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Senha"
-          onChangeText={this.setPassword}
-          value={password}
-          secureTextEntry={true}
-        />
-        <Text style={styles.error}>
-          {email !== '' && password !== '' && !this.isEmailValid() ? 'Email ou senha incorretos' : ''}
-        </Text>
-        <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-          <FontAwesomeIcon icon={faPlayCircle} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Entrar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registration')}>
-          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Primeiro Acesso</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
-          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Buscar Animais/Abrigo</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('InfoAnimal')}>
-          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Informações do Animal</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroAnimal')}>
-          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Cadastro Animal</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
-          <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-          <Text style={styles.buttonText}>Edicao Animal</Text>
-        </TouchableOpacity>
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.title}>Pets</Text>
+          <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            onChangeText={this.setEmail}
+            value={email}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Senha"
+            onChangeText={this.setPassword}
+            value={password}
+            secureTextEntry={true}
+          />
+          <Text style={styles.error}>
+            {email !== '' && password !== '' && !this.isEmailValid() ? 'Email ou senha incorretos' : ''}
+          </Text>
+          <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+            <FontAwesomeIcon icon={faPlayCircle} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Entrar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registration')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Primeiro Acesso</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Buscar Animais/Abrigo</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('InfoAnimal')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Informações do Animal</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroAnimal')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Cadastro Animal</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Edicao Animal</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveis')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Animais Disponíveis</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveisAbrigo')}>
+            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <Text style={styles.buttonText}>Animais Disponíveis Abrigo</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     );
   }
 }

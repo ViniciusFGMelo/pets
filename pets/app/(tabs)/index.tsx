@@ -8,6 +8,8 @@ import BuscaAnimais from '../../screens/buscaAnimaisAbrigo';
 import InfoAnimal from '../../screens/infoAnimal';
 import CadastroAnimal from '../../screens/abrigos/cadastroAnimal';
 import EdicaoAnimal from '../../screens/abrigos/edicaoAnimal';
+import AnimaisDisponiveis from '../../screens/abrigos/animaisDisponiveis'
+import AnimaisDisponiveisAbrigo from '../../screens/abrigos/animaisDisponiveisAbrigo'
 
 const Stack = createStackNavigator();
 
@@ -22,6 +24,8 @@ const App = () => {
         <Stack.Screen name="InfoAnimal" component={InfoAnimal} />
         <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} />
         <Stack.Screen name="EdicaoAnimal" component={EdicaoAnimal} />
+        <Stack.Screen name="AnimaisDisponiveis" component={AnimaisDisponiveis} />
+        <Stack.Screen name="AnimaisDisponiveisAbrigo" component={AnimaisDisponiveisAbrigo} />
       </Stack.Navigator>
   );
 };
