@@ -5,13 +5,20 @@ const InfoAnimal = () => {
   return (
     <View style={styles.container}>
         <View style={styles.infoContainer}>
-        <Image
-            source={require('../assets/images/dog3.png')} // Replace with the actual path to your image
-            style={styles.image}
-            />
+            <View style={styles.infoImage}>
+                <Image
+                source={require('../assets/images/dog3.png')}
+                style={styles.image}
+                />
+            </View>
+            <View style={styles.ossos}>
+                <Image source={require("../assets/images/osso2.png")} style={styles.osso2}/>
+            </View>
+
         
             <Text style={styles.name}>Raimundo Neto</Text>
             <Text style={styles.status}>Disponível</Text>
+            <br></br>
             <Text style={styles.detail}><strong>Porte:</strong> Pequeno</Text>
             <Text style={styles.detail}><strong>Idade:</strong> 1 ano</Text>
             <Text style={styles.detail}><strong>Raça:</strong> Salsicha</Text>
@@ -24,6 +31,11 @@ const InfoAnimal = () => {
             <Text style={styles.detail}><strong>Email:</strong> el_dorado@abrigo.com.br<br></br>
             3212300, Eldorado, Juiz de Fora,
             <br></br>MG. Rua El Thaco, 12</Text>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </View>
     </View>
   );
@@ -36,32 +48,59 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    image: {
+
+    infoImage: {
         width: 150,
         height: 200,
         marginBottom: 20,
         marginLeft: 50,
-        border: '2px solid white',
-        borderRadius: 10,
-        alignItems: 'center',
-        backgroundColor: 'white'
+        borderWidth: 2,
+        borderColor: 'white',
+        borderRadius: 10,     
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center', 
+        overflow: "hidden",
     },
+    
+    image: {
+        width: '100%',     
+        height: '100%',   
+        borderRadius: 10,   
+        resizeMode: 'cover',
+    },
+      
+
+    ossos: {
+        marginBottom: -50,
+    },
+
+    osso2: {
+        width: 60,
+        height: 60,
+        left: 180,
+        top: 10,
+    },
+
     infoContainer: {
         padding: 20,
-        border: '2px, solid white',
-        borderRadius: 10,
         backgroundColor: "#F5F5F5"
     },
+
     name: {
-        fontSize: 24,
+        fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 10,
+        left: 60,
     },
+
     status: {
-        fontSize: 18,
+        fontSize: 15,
         color: 'green',
         marginBottom: 10,
+        left: 90,
     },
+
     detail: {
         fontSize: 16,
         marginBottom: 5,

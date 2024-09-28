@@ -98,87 +98,95 @@ class AbrigoRegistrationScreen extends Component {
     const { navigation } = this.props;
 
     return (
-      <ScrollView style={{ backgroundColor: '#ECE6F0', flex: 1 }}>
+      <ScrollView style={{ backgroundColor: '#ECDFCC', flex: 1 }}>
         <View style={styles.registrationContainer}>
           <Text style={styles.title}>Cadastro de Abrigo</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Nome da Instituição"
-            value={this.state.nomeInstituicao}
-            onChangeText={this.setNomeInstituicao}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Telefone"
-            keyboardType="numeric"
-            value={this.state.telefone}
-            onChangeText={this.setTelefone}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Email"
-            keyboardType="email-address"
-            value={this.state.email}
-            onChangeText={this.setEmail}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="CEP"
-            keyboardType="numeric"
-            value={this.state.cep}
-            onChangeText={this.setCep}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Cidade"
-            value={this.state.cidade}
-            onChangeText={this.setCidade}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Estado"
-            value={this.state.estado}
-            onChangeText={this.setEstado}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Bairro"
-            value={this.state.bairro}
-            onChangeText={this.setBairro}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Rua"
-            value={this.state.rua}
-            onChangeText={this.setRua}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Número"
-            value={this.state.numero}
-            onChangeText={this.setNumero}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            value={this.state.senha}
-            onChangeText={this.setSenha}
-            secureTextEntry={true}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Repetir Senha"
-            value={this.state.repetirSenha}
-            onChangeText={this.setRepetirSenha}
-            secureTextEntry={true}
-          />
-
-          <TouchableOpacity style={styles.button1} onPress={this.handleAbrigoRegistration}>
-            <Text style={styles.buttonText1}>Criar Conta</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
-            <Text style={styles.buttonText2}>Cancelar</Text>
-          </TouchableOpacity>
+          <View style={styles.container2}>
+            <br></br>
+            <br></br>
+            <TextInput
+              style={styles.input}
+              placeholder="Nome da Instituição"
+              value={this.state.nomeInstituicao}
+              onChangeText={this.setNomeInstituicao}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Telefone"
+              keyboardType="numeric"
+              value={this.state.telefone}
+              onChangeText={this.setTelefone}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Email"
+              keyboardType="email-address"
+              value={this.state.email}
+              onChangeText={this.setEmail}
+            />
+            <br></br>
+            <br></br>
+            <TextInput
+              style={styles.input}
+              placeholder="CEP"
+              keyboardType="numeric"
+              value={this.state.cep}
+              onChangeText={this.setCep}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Cidade"
+              value={this.state.cidade}
+              onChangeText={this.setCidade}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Estado"
+              value={this.state.estado}
+              onChangeText={this.setEstado}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Bairro"
+              value={this.state.bairro}
+              onChangeText={this.setBairro}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Rua"
+              value={this.state.rua}
+              onChangeText={this.setRua}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Número"
+              value={this.state.numero}
+              onChangeText={this.setNumero}
+            />
+            <br></br>
+            <br></br>
+            <TextInput
+              style={styles.input}
+              placeholder="Senha"
+              value={this.state.senha}
+              onChangeText={this.setSenha}
+              secureTextEntry={true}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Repetir Senha"
+              value={this.state.repetirSenha}
+              onChangeText={this.setRepetirSenha}
+              secureTextEntry={true}
+            />
+            <br></br>
+            <TouchableOpacity style={styles.button1} onPress={this.handleAbrigoRegistration}>
+              <Text style={styles.buttonText1}>Criar Conta</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
+              <Text style={styles.buttonText2}>Cancelar</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     );
@@ -191,6 +199,20 @@ const styles = StyleSheet.create({
       backgroundColor: '#ECDFCC',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+
+    container2:{
+      display: 'flex',
+      alignItems: "center",
+      width: "380px",
+      height: "800px",
+      backgroundColor: '#ECE6F0',
+      borderRadius: 10,
+      borderWidth: 1,
+      borderColor: "#D9D9D9",
+      overflow: 'hidden',
+      marginHorizontal: 10,
+      alignItems: "center",
     },
   
     loginContainer: {
@@ -206,7 +228,7 @@ const styles = StyleSheet.create({
     },
   
     registrationContainer: {
-      backgroundColor: '#ECE6F0',
+      backgroundColor: '#ECDFCC',     
       flex: 1,
       flexDirection: 'column',
       display: 'flex',
@@ -217,7 +239,8 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 24,
       fontWeight: 'bold',
-      marginBottom: 20,
+      marginBottom: 5,
+      marginTop: 50,
       textAlign: 'center',
     },
   
@@ -228,10 +251,12 @@ const styles = StyleSheet.create({
     },
   
     input: {
+      color: "#B3B3B3",
+      backgroundColor: '#FFFFFF',
       height: 50,
       width: 300,
       borderWidth: 1,
-      borderColor: '#ccc',
+      borderColor: '#B3B3B3',
       padding: 10,
       marginBottom: 10,
       borderRadius: 5,
@@ -271,8 +296,8 @@ const styles = StyleSheet.create({
   
     button1: {
       backgroundColor: '#2c2c2c',
-      height: 50,
-      width: 250,
+      height: 44,
+      width: 272,
       padding: 10,
       borderRadius: 16,
       marginBottom: 10,
@@ -288,8 +313,8 @@ const styles = StyleSheet.create({
   
     button2: {
       backgroundColor: '#EC221F',
-      height: 50,
-      width: 250,
+      height: 44,
+      width: 272,
       padding: 10,
       borderRadius: 16,
       marginBottom: 10,

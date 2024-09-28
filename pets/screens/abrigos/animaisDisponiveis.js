@@ -35,23 +35,23 @@ const AnimaisDisponiveis = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Animais Disponíveis</Text>
             <View style={styles.container2}>
-            <FlatList
-            data={dogs}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-                <View style={styles.dogContainer}>
-                    <Image source={item.image} style={styles.image} />
-                    <View style={styles.infoContainer}>
-                      <View>
-                        <Text style={styles.name}>{item.name}</Text>
+              <FlatList
+              data={dogs}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                  <View style={styles.dogContainer}>
+                      <Image source={item.image} style={styles.image} />
+                      <View style={styles.infoContainer}>
+                        <View>
+                          <Text style={styles.name}>{item.name}</Text>
+                        </View>
+                        <View>
+                          <Text style={styles.location}>{item.location}</Text>
+                        </View>
                       </View>
-                      <View>
-                        <Text style={styles.location}>{item.location}</Text>
-                      </View>
-                    </View>
-                </View>
-            )}
-            />
+                  </View>
+              )}
+              />
             </View>
         </View>
     </ScrollView>
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     width: '450px',
     marginBottom: 10,
     backgroundColor: 'white',
-    borderRadius: 10,
     overflow: 'hidden',
     marginHorizontal: 10,
     alignItems: "center",
@@ -81,8 +80,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 30,
-    marginTop: 20,
+    marginBottom: 5,
+    marginTop: 40,
     textAlign: 'center',
   },
 

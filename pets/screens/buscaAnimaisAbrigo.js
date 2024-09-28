@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet , Platform } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet , Platform, Image } from 'react-native';
 
 class BuscaAnimais extends Component {
     constructor(props) {
@@ -59,57 +59,63 @@ class BuscaAnimais extends Component {
         const { navigation } = this.props;
 
         return (
-            <ScrollView style={{ backgroundColor: '#ECE6F0', flex: 1 }}>
+            <ScrollView style={{ backgroundColor: '#ECDFCC', flex: 1 }}>
                 <View style={styles.buscaContainer}>
-                    <Text style={styles.title}>Buscar por animais ou abrigos</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Nome da Instituição"
-                        value={this.state.nomeInstituicao}
-                        onChangeText={this.setNomeInstituicao}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Cidade"
-                        value={this.state.cidade}
-                        onChangeText={this.setCidade}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Bairro"
-                        value={this.state.bairro}
-                        onChangeText={this.setBairro}
-                    />
-                    <br></br>
-                    <br></br>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Raça"
-                        value={this.state.raca}
-                        onChangeText={this.setRaca}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Porte"
-                        value={this.state.porte}
-                        onChangeText={this.setPorte}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Sexo"
-                        value={this.state.sexo}
-                        onChangeText={this.setSexo}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Idade"
-                        value={this.state.idade}
-                        onChangeText={this.setIdade}
-                    />
+                    <View style={styles.container2}>
+                        <View style={styles.ossos}>
+                            <Image source={require("../assets/images/osso1.png")} style={styles.osso1}/>
+                            <Image source={require("../assets/images/osso2.png")} style={styles.osso2}/>
+                        </View>
+                        <Text style={styles.title}>Buscar por animais <br></br>ou abrigos</Text>
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Nome da Instituição"
+                                value={this.state.nomeInstituicao}
+                                onChangeText={this.setNomeInstituicao}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Cidade"
+                                value={this.state.cidade}
+                                onChangeText={this.setCidade}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Bairro"
+                                value={this.state.bairro}
+                                onChangeText={this.setBairro}
+                            />
+                            <br></br>
+                            <br></br>
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Raça"
+                                value={this.state.raca}
+                                onChangeText={this.setRaca}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Porte"
+                                value={this.state.porte}
+                                onChangeText={this.setPorte}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Sexo"
+                                value={this.state.sexo}
+                                onChangeText={this.setSexo}
+                            />
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Idade"
+                                value={this.state.idade}
+                                onChangeText={this.setIdade}
+                            />
 
-                    <TouchableOpacity style={styles.button1} onPress={this.handleBuscaAnimal}>
-                        <Text style={styles.buttonText1}>Buscar</Text>
-                    </TouchableOpacity>
+                            <TouchableOpacity style={styles.button1} onPress={this.handleBuscaAnimal}>
+                                <Text style={styles.buttonText1}>🔍 Buscar</Text>
+                            </TouchableOpacity>
+                    </View>
                 </View>
             </ScrollView>
         );
@@ -122,6 +128,36 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECDFCC',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+
+    container2:{
+        display: 'flex',
+        alignItems: "center",
+        width: "370px",
+        height: "750px",
+        marginBottom: 10,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        overflow: 'hidden',
+        marginHorizontal: 10,
+        alignItems: "center",
+    },
+
+    ossos: {
+        marginBottom: "-50px",
+    },
+
+    osso1: {
+        width: "70px",
+        height: "70px",
+        right: "150px",
+    },
+
+    osso2: {
+        width: "70px",
+        height: "70px",
+        left: "150px",
+        bottom: "70px",
     },
 
     loginContainer: {
@@ -137,7 +173,7 @@ const styles = StyleSheet.create({
     },
 
     registrationContainer: {
-        backgroundColor: '#ECE6F0',
+        backgroundColor: '#ECDFCC',
         flex: 1,
         flexDirection: 'column',
         display: 'flex',
@@ -148,7 +184,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: 40,
         textAlign: 'center',
     },
 
@@ -159,10 +195,11 @@ const styles = StyleSheet.create({
     },
 
     input: {
+        color: "#B3B3B3",
         height: 50,
         width: 300,
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#B3B3B3',
         padding: 10,
         marginBottom: 10,
         borderRadius: 5,
@@ -173,17 +210,17 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
 
-    button: {
-        backgroundColor: '#F5F5F5',
-        height: 50,
-        width: 250,
-        padding: 10,
-        borderRadius: 16,
-        marginBottom: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    // button: {
+    //     backgroundColor: '#F5F5F5',
+    //     height: 50,
+    //     width: 250,
+    //     padding: 10,
+    //     borderRadius: 16,
+    //     marginBottom: 10,
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    // },
 
     buttonIcon: {
         marginRight: 10,
@@ -202,11 +239,12 @@ const styles = StyleSheet.create({
 
     button1: {
         backgroundColor: '#2c2c2c',
-        height: 50,
-        width: 250,
+        height: 44,
+        width: 323,
         padding: 10,
         borderRadius: 16,
-        marginBottom: 10,
+        marginBottom: 100,
+        marginTop: 50,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -231,6 +269,7 @@ const styles = StyleSheet.create({
 
     buscaContainer: {
         padding: 50,
+        backgroundColor: '#ECDFCC',     
         flex: 1,
         flexDirection: 'column',
         display: 'flex',

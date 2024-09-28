@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, Alert, StyleSheet, Platform } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,6 +20,14 @@ class LoginScreen extends Component {
 
   setPassword = (value) => {
     this.setState({ password: value });
+  };
+
+  clearEmail = () => {
+    this.setState({ email: '' });
+  };
+
+  clearPassword = () => {
+    this.setState({ password: '' });
   };
 
   handleLogin = () => {
@@ -53,21 +61,29 @@ class LoginScreen extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.title}>Pets</Text>
+          <Text style={styles.title}><strong>Pets</strong></Text>
           <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
           <TextInput
             style={styles.input}
-            placeholder="Email"
+            placeholder="email"
             onChangeText={this.setEmail}
             value={email}
           />
+          <TouchableOpacity onPress={this.clearEmail}>
+            <Image source={require("../assets/images/iconl.png")} style={styles.image}/>
+          </TouchableOpacity>
+          
           <TextInput
             style={styles.input}
-            placeholder="Senha"
+            placeholder="senha"
             onChangeText={this.setPassword}
             value={password}
             secureTextEntry={true}
           />
+          <TouchableOpacity onPress={this.clearPassword}>
+            <Image source={require("../assets/images/iconl.png")} style={styles.image}/>
+          </TouchableOpacity>
+
           <Text style={styles.error}>
             {email !== '' && password !== '' && !this.isEmailValid() ? 'Email ou senha incorretos' : ''}
           </Text>
@@ -75,34 +91,42 @@ class LoginScreen extends Component {
             <FontAwesomeIcon icon={faPlayCircle} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registration')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Primeiro Acesso</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Buscar Animais/Abrigo</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('InfoAnimal')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Informações do Animal</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroAnimal')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Cadastro Animal</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Edicao Animal</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveis')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Animais Disponíveis</Text>
           </TouchableOpacity>
+
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveisAbrigo')}>
             <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Animais Disponíveis Abrigo</Text>
           </TouchableOpacity>
+
         </View>
       </ScrollView>
     );
@@ -139,26 +163,24 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      marginBottom: 20,
+      fontSize: 32,
+      marginBottom: 30,
+      marginTop: 120,
       textAlign: 'center',
     },
   
     icon: {
-      marginBottom: 20,
-      width: 150,
-      height: 150
+      marginBottom: 150,
+      width: 180,
+      height: 180,
     },
   
     input: {
       height: 50,
       width: 300,
-      borderWidth: 1,
-      borderColor: '#ccc',
+      borderBottomWidth: 1,
+      backgroundColor: '#E6E0E9',
       padding: 10,
-      marginBottom: 10,
-      borderRadius: 5,
     },
   
     error: {
@@ -229,6 +251,13 @@ const styles = StyleSheet.create({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+
+    image:{
+      width: 25,
+      height: 25,
+      left: 130,
+      bottom: 35,
     }
   });
 

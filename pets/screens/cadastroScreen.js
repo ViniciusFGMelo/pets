@@ -13,8 +13,14 @@ class RegistrationScreen extends Component {
 
         return (
             <View style={styles.registrationContainer}>
-                <Text style={styles.title}>Seleção de Perfil</Text>
                 <Image source={require('../assets/images/dog2.png')} style={styles.icon} />
+                <Text style={styles.title}>Seleção de Perfil</Text>
+
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AbrigoRegistration')}>
+                    <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+                    <Text style={styles.buttonText}>Abrigo</Text>
+                </TouchableOpacity>
+                <br></br>
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
@@ -24,11 +30,6 @@ class RegistrationScreen extends Component {
                     <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
                     <Text style={styles.buttonText}>Quero adotar</Text>
                 </TouchableOpacity>
-
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AbrigoRegistration')}>
-                    <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-                    <Text style={styles.buttonText}>Abrigo</Text>
-                </TouchableOpacity>
             </View>
         );
     }
@@ -36,7 +37,7 @@ class RegistrationScreen extends Component {
 
 const styles = StyleSheet.create({
     registrationContainer: {
-        backgroundColor: '#ECE6F0',
+        backgroundColor: '#ECDFCC',
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: 100,
         textAlign: 'center',
     },
     icon: {

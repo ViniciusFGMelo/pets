@@ -115,84 +115,90 @@ class AdotanteRegistrationScreen extends Component {
         const { navigation } = this.props;
 
         return (
-            <ScrollView style={{ backgroundColor: '#ECE6F0', flex: 1 }}>
+            <ScrollView style={{ backgroundColor: '#ECDFCC', flex: 1 }}>
                 <View style={styles.registrationContainer}>
                     <Text style={styles.title}>Cadastro Adotante</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Nome"
-                        onChangeText={(text) => this.setNome(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Nascimento"
-                        onChangeText={(text) => this.setNascimento(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Sexo"
-                        onChangeText={(text) => this.setSexo(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Telefone"
-                        keyboardType='numeric'
-                        onChangeText={(text) => this.setTelefone(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Email"
-                        keyboardType='email-address'
-                        onChangeText={(text) => this.setEmail(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="CEP"
-                        onChangeText={(text) => this.setCep(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Cidade"
-                        onChangeText={(text) => this.setCidade(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Estado"
-                        onChangeText={(text) => this.setEstado(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Bairro"
-                        onChangeText={(text) => this.setBairro(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Rua"
-                        onChangeText={(text) => this.setRua(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Número"
-                        onChangeText={(text) => this.setNumero(text)}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Senha"
-                        onChangeText={(text) => this.setSenha(text)}
-                        secureTextEntry={true}
-                    />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Repetir Senha"
-                        onChangeText={(text) => this.setRepetirSenha(text)}
-                        secureTextEntry={true}
-                    />
-                    <TouchableOpacity style={styles.button1} onPress={this.handleAdotanteRegistration}>
-                        <Text style={styles.buttonText1}>Criar Conta</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
-                        <Text style={styles.buttonText2}>Cancelar</Text>
-                    </TouchableOpacity>
+                    <View style={styles.container2}>
+                        <br></br>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Nome"
+                            onChangeText={(text) => this.setNome(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Nascimento"
+                            onChangeText={(text) => this.setNascimento(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Sexo"
+                            onChangeText={(text) => this.setSexo(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Telefone"
+                            keyboardType='numeric'
+                            onChangeText={(text) => this.setTelefone(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Email"
+                            keyboardType='email-address'
+                            onChangeText={(text) => this.setEmail(text)}
+                        />
+                        <br></br>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="CEP"
+                            onChangeText={(text) => this.setCep(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Cidade"
+                            onChangeText={(text) => this.setCidade(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Estado"
+                            onChangeText={(text) => this.setEstado(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Bairro"
+                            onChangeText={(text) => this.setBairro(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Rua"
+                            onChangeText={(text) => this.setRua(text)}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Número"
+                            onChangeText={(text) => this.setNumero(text)}
+                        />
+                        <br></br>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Senha"
+                            onChangeText={(text) => this.setSenha(text)}
+                            secureTextEntry={true}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Repetir Senha"
+                            onChangeText={(text) => this.setRepetirSenha(text)}
+                            secureTextEntry={true}
+                        />
+                        <br></br>
+                        <TouchableOpacity style={styles.button1} onPress={this.handleAdotanteRegistration}>
+                            <Text style={styles.buttonText1}>Criar Conta</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
+                            <Text style={styles.buttonText2}>Cancelar</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </ScrollView>
         );
@@ -205,6 +211,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#ECDFCC',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+
+    container2:{
+        display: 'flex',
+        alignItems: "center",
+        width: "380px",
+        height: "800px",
+        backgroundColor: '#ECE6F0',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: "#D9D9D9",
+        overflow: 'hidden',
+        marginHorizontal: 10,
+        alignItems: "center",
     },
 
     loginContainer: {
@@ -220,7 +240,7 @@ const styles = StyleSheet.create({
     },
 
     registrationContainer: {
-        backgroundColor: '#ECE6F0',
+        backgroundColor: '#ECDFCC',
         flex: 1,
         flexDirection: 'column',
         display: 'flex',
@@ -231,7 +251,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginBottom: 5,
+        marginTop: 50,
         textAlign: 'center',
     },
 
@@ -242,10 +263,12 @@ const styles = StyleSheet.create({
     },
 
     input: {
+        color: "#B3B3B3",
+        backgroundColor: '#FFFFFF',
         height: 50,
         width: 300,
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#B3B3B3',
         padding: 10,
         marginBottom: 10,
         borderRadius: 5,
@@ -285,8 +308,8 @@ const styles = StyleSheet.create({
 
     button1: {
         backgroundColor: '#2c2c2c',
-        height: 50,
-        width: 250,
+        height: 44,
+        width: 272,
         padding: 10,
         borderRadius: 16,
         marginBottom: 10,
@@ -302,8 +325,8 @@ const styles = StyleSheet.create({
 
     button2: {
         backgroundColor: '#EC221F',
-        height: 50,
-        width: 250,
+        height: 44,
+        width: 272,
         padding: 10,
         borderRadius: 16,
         marginBottom: 10,

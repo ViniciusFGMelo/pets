@@ -31,6 +31,8 @@ const AnimaisDisponiveis = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Abrigo do Júlio</Text>
             <View style={styles.container2}>
+              <br></br>
+              <br></br>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Cadastrar Animais</Text>
               </TouchableOpacity>
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
     width: '450px',
     marginBottom: 10,
     backgroundColor: 'white',
-    borderRadius: 10,
     overflow: 'hidden',
     marginHorizontal: 10,
     alignItems: "center",
@@ -79,7 +80,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 5,
+    marginTop: 40,
     textAlign: 'center',
   },
 
@@ -91,8 +93,8 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 50,
     backgroundColor: '#2c2c2c',
-    height: 50,
-    width: 300,
+    height: 45,
+    width: 350,
     padding: 10,
     borderRadius: 16,
     marginBottom: 10,
