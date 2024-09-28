@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import {React, Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, Alert, StyleSheet, Platform } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -61,7 +61,7 @@ class LoginScreen extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.title}><strong>Pets</strong></Text>
+          <Text style={styles.title}>Pets</Text>
           <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
           <TextInput
             style={styles.input}
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: 32,
+      fontSize: "32px",
       marginBottom: 30,
       marginTop: 120,
       textAlign: 'center',
@@ -207,12 +207,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     button1: {
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     button2: {

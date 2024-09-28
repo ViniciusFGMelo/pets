@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import {React, Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     title: {
-        fontSize: 24,
+        fontSize: "24px",
         fontWeight: 'bold',
         marginBottom: 100,
         textAlign: 'center',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#65558F',
-        fontSize: 16,
+        fontSize: "16px",
     },
 });
 
