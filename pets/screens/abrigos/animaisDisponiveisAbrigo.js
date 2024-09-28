@@ -1,4 +1,4 @@
-import React from 'react';
+import {React} from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
+    fontSize: "24px",
     fontWeight: 'bold',
     marginBottom: 5,
     marginTop: 40,
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: "16px",
   },
 
   button: {
@@ -147,14 +147,14 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontSize: 20,
+    fontSize: "20px",
     fontWeight: 'bold',
     bottom: 10,
     left: 15,
   },
 
   location: {
-    fontSize: 15,
+    fontSize: "15px",
     color: '#555',
     textAlign: 'center',
   },

@@ -1,4 +1,4 @@
-import React from 'react';
+import {React} from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 const InfoAnimal = () => {
@@ -88,21 +88,21 @@ const styles = StyleSheet.create({
     },
 
     name: {
-        fontSize: 18,
+        fontSize: "18px",
         fontWeight: 'bold',
         marginBottom: 10,
         left: 60,
     },
 
     status: {
-        fontSize: 15,
+        fontSize: "15px",
         color: 'green',
         marginBottom: 10,
         left: 90,
     },
 
     detail: {
-        fontSize: 16,
+        fontSize: "16px",
         marginBottom: 5,
     },
 });

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import {React, Component } from 'react';
 import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet,Platform } from 'react-native';
 
 class CadastroAnimal extends Component {
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: 24,
+      fontSize: "24px",
       fontWeight: 'bold',
       marginTop: 50,
       marginBottom: 5,
@@ -249,12 +249,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     button1: {
@@ -271,7 +271,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: 16,
+      fontSize: "16px",
     },
   
     button2: {
