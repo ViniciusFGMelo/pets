@@ -1,4 +1,4 @@
-import {React,  Component } from 'react';
+import React,  {Component } from 'react';
 import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet , Platform, Image } from 'react-native';
 
 class BuscaAnimais extends Component {
@@ -68,7 +68,7 @@ class BuscaAnimais extends Component {
                             <Image source={require("../assets/images/osso1.png")} style={styles.osso1}/>
                             <Image source={require("../assets/images/osso2.png")} style={styles.osso2}/>
                         </View>
-                        <Text style={styles.title}>Buscar por animais <br></br>ou abrigos</Text>
+                        <Text style={styles.title}>Buscar por animais {'\n'} ou abrigos</Text>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Nome da Instituição"
@@ -87,8 +87,6 @@ class BuscaAnimais extends Component {
                                 value={this.state.bairro}
                                 onChangeText={this.setBairro}
                             />
-                            <br></br>
-                            <br></br>
                             <TextInput
                                 style={styles.input}
                                 placeholder="Raça"
@@ -115,7 +113,7 @@ class BuscaAnimais extends Component {
                             />
 
                             <TouchableOpacity style={styles.button1} onPress={this.handleBuscaAnimal}>
-                                <Text style={styles.buttonText1}>🔍 Buscar</Text>
+                                <Text style={styles.buttonText1}>Buscar</Text>
                             </TouchableOpacity>
                     </View>
                 </View>
@@ -135,8 +133,8 @@ const styles = StyleSheet.create({
     container2:{
         display: 'flex',
         alignItems: "center",
-        width: "370px",
-        height: "750px",
+        width: 340,
+        height: 750,
         marginBottom: 10,
         backgroundColor: 'white',
         borderRadius: 10,
@@ -146,20 +144,20 @@ const styles = StyleSheet.create({
     },
 
     ossos: {
-        marginBottom: "-50px",
+        marginBottom: -50,
     },
 
     osso1: {
-        width: "70px",
-        height: "70px",
-        right: "150px",
+        width: 70,
+        height: 70,
+        right: 135,
     },
 
     osso2: {
-        width: "70px",
-        height: "70px",
-        left: "150px",
-        bottom: "70px",
+        width: 70,
+        height: 70,
+        left: 135,
+        bottom: 70,
     },
 
     loginContainer: {
@@ -184,7 +182,7 @@ const styles = StyleSheet.create({
     },
 
     title: {
-        fontSize: "24px",
+        fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 40,
         textAlign: 'center',
@@ -231,12 +229,12 @@ const styles = StyleSheet.create({
 
     buttonText: {
         color: '#65558F',
-        fontSize: "16px",
+        fontSize: 16,
     },
 
     buttonText1: {
         color: 'white',
-        fontSize: "16px",
+        fontSize: 16,
     },
 
     button1: {
@@ -254,7 +252,7 @@ const styles = StyleSheet.create({
 
     buttonText2: {
         color: 'white',
-        fontSize: "16px",
+        fontSize: 16,
     },
 
     button2: {

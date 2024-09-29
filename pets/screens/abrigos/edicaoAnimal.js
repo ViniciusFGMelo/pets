@@ -1,5 +1,6 @@
-import {React, Component } from 'react';
-import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet,Platform, Picker } from 'react-native';
+import React, { Component } from 'react';
+import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet, Platform } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 class EdicaoAnimal extends Component {
   constructor(props) {
@@ -12,72 +13,40 @@ class EdicaoAnimal extends Component {
       sexo: '',
       peso: '',
       info_vacinacao: '',
-      statusAdocao: '',
+      statusAdocao: 'Disponível', // Definindo um valor padrão
     };
   }
 
-  setNome = (value) => {
-    this.setState({ nome: value });
-  };
-
-  setPorte = (value) => {
-    this.setState({ porte: value });
-  };
-
-  setIdade = (value) => {
-    this.setState({ idade: value });
-  };
-
-  setRaca = (value) => {
-    this.setState({ raca: value });
-  };
-
-  setSexo = (value) => {
-    this.setState({ sexo: value });
-  };
-
-  setPeso = (value) => {
-    this.setState({ peso: value });
-  };
-
-  setInfoVacinacao = (value) => {
-    this.setState({ info_vacinacao: value });
-  };
-
-  setStatusAdocao = (value) => {
-    this.setState({ statusAdocao: value });
-  };
+  setNome = (value) => this.setState({ nome: value });
+  setPorte = (value) => this.setState({ porte: value });
+  setIdade = (value) => this.setState({ idade: value });
+  setRaca = (value) => this.setState({ raca: value });
+  setSexo = (value) => this.setState({ sexo: value });
+  setPeso = (value) => this.setState({ peso: value });
+  setInfoVacinacao = (value) => this.setState({ info_vacinacao: value });
+  setStatusAdocao = (value) => this.setState({ statusAdocao: value });
 
   handleEdicaoAnimal = () => {
     const { nome, porte, idade, raca, sexo, peso, info_vacinacao } = this.state;
-
     const { navigation } = this.props;
 
-
-  
-    if (!nome || !porte || !idade || !raca || !sexo ||!peso || !info_vacinacao ) {
-        if (Platform.OS === 'web') {
-            window.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          } else {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          }
+    if (!nome || !porte || !idade || !raca || !sexo || !peso || !info_vacinacao) {
+      const message = 'Por favor, preencha todos os campos corretamente.';
+      Platform.OS === 'web' ? window.alert('Erro', message) : Alert.alert('Erro', message);
       return;
     }
 
-  
+    const successMessage = 'Salvo com sucesso!';
+    Platform.OS === 'web' ? window.alert('Salvo!', successMessage) : Alert.alert('Salvo!', successMessage);
+    navigation.goBack();
+  };
 
-    if (Platform.OS === 'web') {
-        window.alert('Salvo!', 'Salvo com sucesso!');
-      } 
-      else 
-      {
-        Alert.alert('Salvo!', 'Salvo com sucesso!');
-      }
-      navigation.goBack();
-    };
+  adicionarImagem = () => {
+    // Adicione sua lógica para alterar a imagem aqui.
+    Alert.alert('Função não implementada', 'Você pode adicionar a lógica para alterar a imagem aqui.');
+  };
 
   render() {
-
     const { navigation } = this.props;
 
     return (
@@ -85,74 +54,70 @@ class EdicaoAnimal extends Component {
         <View style={styles.registrationContainer}>
           <Text style={styles.title}>Edição de Animais</Text>
           <View style={styles.container2}>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+
             <TextInput
-              style={styles.input}
-              placeholder="Kakaroto"
+              style={[styles.input, {marginTop: 50}]}
+              placeholder="Nome"
               value={this.state.nome}
               onChangeText={this.setNome}
             />
             <TextInput
               style={styles.input}
-              placeholder="Grande"
+              placeholder="Porte"
               value={this.state.porte}
               onChangeText={this.setPorte}
             />
             <TextInput
               style={styles.input}
-              placeholder="6"
+              placeholder="Idade"
               keyboardType="numeric"
               value={this.state.idade}
               onChangeText={this.setIdade}
             />
             <TextInput
               style={styles.input}
-              placeholder="Golden"
+              placeholder="Raça"
               value={this.state.raca}
               onChangeText={this.setRaca}
             />
             <TextInput
               style={styles.input}
-              placeholder="Masculino"
+              placeholder="Sexo"
               value={this.state.sexo}
               onChangeText={this.setSexo}
             />
             <TextInput
               style={styles.input}
-              placeholder="20"
+              placeholder="Peso"
+              keyboardType="numeric"
               value={this.state.peso}
               onChangeText={this.setPeso}
             />
             <TextInput
               style={styles.input}
-              placeholder="Vacina de raiva atrasada"
+              placeholder="Informações de Vacinação"
               value={this.state.info_vacinacao}
               onChangeText={this.setInfoVacinacao}
             />
-            <br></br>
 
-            <TouchableOpacity style={styles.buttonAdc} onPress={this.adicionarImagem}>
+            <TouchableOpacity style={[styles.buttonAdc, {marginTop: 20, marginBottom: 50}]} onPress={this.adicionarImagem}>
               <Text style={styles.buttonText1}>Alterar Imagem</Text>
             </TouchableOpacity>
 
-            <br></br><br></br>
-
             <Text style={styles.status}>Status de Adoção</Text>
-            <Picker style={styles.picker}
-              selectedValue={this.state.statusAdocao}
-              onValueChange={(itemValue) => setStatusAdocao(itemValue)}
-            >
-              <Picker.Item label="Disponível" value="Disponível" />
-              <Picker.Item label="Adotado" value="Adotado" />
-            </Picker>
 
-            <br></br><br></br>
-            <br></br><br></br>
+            <View style={styles.pickerContainer}>
+              <Picker
+                style={styles.picker}
+                selectedValue={this.state.statusAdocao}
+                onValueChange={(itemValue) => this.setStatusAdocao(itemValue)}
+              >
+                <Picker.Item label="Disponível" value="Disponível" />
+                <Picker.Item label="Adotado" value="Adotado" />
+              </Picker>
+            </View>
             
-            <TouchableOpacity style={styles.button1} onPress={this.handleEdicaoAnimal}>
+            <TouchableOpacity style={[styles.button1, {marginTop: 50}]} onPress={this.handleEdicaoAnimal}>
               <Text style={styles.buttonText1}>Salvar</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
@@ -176,12 +141,12 @@ const styles = StyleSheet.create({
     container2:{
       display: 'flex',
       alignItems: "center",
-      width: "380px",
-      height: "800px",
-      backgroundColor: '#F5F5F5',
+      width: 340,
+      height: 900,
+      marginBottom: 10,
+      marginTop: 10,
+      backgroundColor: 'white',
       borderRadius: 10,
-      borderWidth: 1,
-      borderColor: "#D9D9D9",
       overflow: 'hidden',
       marginHorizontal: 10,
       alignItems: "center",
@@ -209,9 +174,10 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: "24px",
+      fontSize: 24,
       fontWeight: 'bold',
-      marginBottom: 20,
+      marginBottom: 5,
+      marginTop: 50 ,
       textAlign: 'center',
     },
   
@@ -257,12 +223,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button1: {
@@ -279,7 +245,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button2: {
@@ -304,20 +270,25 @@ const styles = StyleSheet.create({
     },
 
     status:{
-      fontSize: "18px",
+      fontSize: 18,
       marginBottom: 10,
       marginRight: 160,
       textAlign: 'center',
     },
 
-    picker:{
+    pickerContainer: {
+      borderWidth: 1,
+      borderColor: 'black',
+      borderRadius: 5,
+      overflow: 'hidden', // Garante que a borda seja visível
+      marginBottom: 10,
+    },
+    
+    picker: {
       height: 45,
       width: 300,
-      borderWidth: 1,
-      borderColor: '#ccc',
-      borderRadius: 5,
-      marginBottom: 10,
-    }
+    },
+    
 
   });
 

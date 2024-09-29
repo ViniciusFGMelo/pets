@@ -1,42 +1,33 @@
-import {React} from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const InfoAnimal = () => {
+const InfoAnimal = ({ route }) => {
+  const { animal } = route.params; // Recebe o animal da navegação
+
   return (
     <View style={styles.container}>
-        <View style={styles.infoContainer}>
-            <View style={styles.infoImage}>
-                <Image
-                source={require('../assets/images/dog3.png')}
-                style={styles.image}
-                />
-            </View>
-            <View style={styles.ossos}>
-                <Image source={require("../assets/images/osso2.png")} style={styles.osso2}/>
-            </View>
-
-        
-            <Text style={styles.name}>Raimundo Neto</Text>
-            <Text style={styles.status}>Disponível</Text>
-            <br></br>
-            <Text style={styles.detail}><strong>Porte:</strong> Pequeno</Text>
-            <Text style={styles.detail}><strong>Idade:</strong> 1 ano</Text>
-            <Text style={styles.detail}><strong>Raça:</strong> Salsicha</Text>
-            <Text style={styles.detail}><strong>Vacinação:</strong> Em dia</Text>
-            <Text style={styles.detail}><strong>Sexo:</strong> Masculino</Text>
-            <Text style={styles.detail}><strong>Peso:</strong> 5 kg;</Text>
-            <br></br>
-            <Text style={styles.detail}><strong>Abrigo:</strong> Eldorado</Text>
-            <Text style={styles.detail}><strong>Telefone:</strong> (32) 3232-3232</Text>
-            <Text style={styles.detail}><strong>Email:</strong> el_dorado@abrigo.com.br<br></br>
-            3212300, Eldorado, Juiz de Fora,
-            <br></br>MG. Rua El Thaco, 12</Text>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+      <View style={styles.infoContainer}>
+        <View style={styles.infoImage}>
+          <Image
+            source={animal.image}
+            style={styles.image}
+          />
         </View>
+        <View>
+          <Image source={require("../assets/images/osso2.png")} style={styles.osso2} />
+        </View>
+        <Text style={styles.name}>{animal.name}</Text>
+        <Text style={styles.status}>Disponível</Text>
+        <Text style={styles.detail}>Porte: Pequeno</Text>
+        <Text style={styles.detail}>Idade: 1 ano</Text>
+        <Text style={styles.detail}>Raça: Salsicha</Text>
+        <Text style={styles.detail}>Vacinação: Em dia</Text>
+        <Text style={styles.detail}>Sexo: Masculino</Text>
+        <Text style={styles.detail}>Peso: 5 kg;</Text>
+        <Text style={styles.detail}>Abrigo: Eldorado</Text>
+        <Text style={styles.detail}>Telefone: (32) 3232-3232</Text>
+        <Text style={styles.detail}>Email: el_dorado@abrigo.com.br</Text>
+      </View>
     </View>
   );
 };
@@ -50,17 +41,13 @@ const styles = StyleSheet.create({
     },
 
     infoImage: {
-        width: 150,
+        width: 300,
         height: 200,
         marginBottom: 20,
-        marginLeft: 50,
         borderWidth: 2,
         borderColor: 'white',
         borderRadius: 10,     
         backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center', 
-        overflow: "hidden",
     },
     
     image: {
@@ -69,16 +56,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,   
         resizeMode: 'cover',
     },
-      
-
-    ossos: {
-        marginBottom: -50,
-    },
 
     osso2: {
         width: 60,
         height: 60,
-        left: 180,
+        left: 230,
         top: 10,
     },
 
@@ -88,21 +70,23 @@ const styles = StyleSheet.create({
     },
 
     name: {
-        fontSize: "18px",
+        fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 10,
-        left: 60,
+        left: 100,
+        bottom: 60,
     },
 
     status: {
-        fontSize: "15px",
+        fontSize: 15,
         color: 'green',
         marginBottom: 10,
-        left: 90,
+        left: 115,
+        bottom: 60,
     },
 
     detail: {
-        fontSize: "16px",
+        fontSize: 16,
         marginBottom: 5,
     },
 });

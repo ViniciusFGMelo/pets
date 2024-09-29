@@ -1,96 +1,77 @@
-import {React, Component } from 'react';
+import React, {Component } from 'react';
 import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet,Platform } from 'react-native';
 
 class AbrigoRegistrationScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nomeInstituicao: '',
-      telefone: '',
-      email: '',
-      cep: '',
-      cidade: '',
-      estado: '',
-      bairro: '',
-      rua: '',
-      numero: '',
-      senha: '',
-      repetirSenha: '',
+      nomeInstituicao: 'qwe',
+      telefone: '32',
+      email: 'test@email.com',
+      cep: '123',
+      cidade: 'qwe',
+      estado: 'qwe',
+      bairro: 'qwe',
+      rua: 'qwe',
+      numero: '123',
+      senha: '123',
+      repetirSenha: '123',
     };
   }
-
-  setNomeInstituicao = (value) => {
-    this.setState({ nomeInstituicao: value });
-  };
-
-  setTelefone = (value) => {
-    this.setState({ telefone: value });
-  };
-
-  setEmail = (value) => {
-    this.setState({ email: value });
-  };
-
-  setCep = (value) => {
-    this.setState({ cep: value });
-  };
-
-  setCidade = (value) => {
-    this.setState({ cidade: value });
-  };
-
-  setEstado = (value) => {
-    this.setState({ estado: value });
-  };
-
-  setBairro = (value) => {
-    this.setState({ bairro: value });
-  };
-
-  setRua = (value) => {
-    this.setState({ rua: value });
-  };
-
-  setNumero = (value) => {
-    this.setState({ numero: value });
-  };
-
-  setSenha = (value) => {
-    this.setState({ senha: value });
-  };
-
-  setRepetirSenha = (value) => {
-    this.setState({ repetirSenha: value });
-  };
-
+  
+  setNomeInstituicao = (value) => this.setState({ nomeInstituicao: value });
+  setTelefone = (value) => this.setState({ telefone: value });
+  setEmail = (value) => this.setState({ email: value });
+  setCep = (value) => this.setState({ cep: value });
+  setCidade = (value) => this.setState({ cidade: value });
+  setEstado = (value) => this.setState({ estado: value });
+  setBairro = (value) => this.setState({ bairro: value });
+  setRua = (value) => this.setState({ rua: value });
+  setNumero = (value) => this.setState({ numero: value });
+  setSenha = (value) => this.setState({ senha: value });
+  setRepetirSenha = (value) => this.setState({ repetirSenha: value });
+  
   handleAbrigoRegistration = () => {
     const { nomeInstituicao, telefone, email, senha, repetirSenha } = this.state;
-
-    const regex = /^.+@email\.com$/;
-
-    const { navigation } = this.props;
-
-
   
-    if (!nomeInstituicao || !telefone || !regex.test(email) || !senha || senha !== repetirSenha) {
-        if (Platform.OS === 'web') {
-            window.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          } else {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
-          }
+    // Regex mais geral para email
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (!nomeInstituicao) {
+      this.showAlert('Erro', 'Nome da instituição é obrigatório.');
       return;
     }
-
-
-        if (Platform.OS === 'web') {
-            window.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
-          } 
-          else 
-          {
-            Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
-          }
-          navigation.goBack();
-    };
+    if (!telefone) {
+      this.showAlert('Erro', 'Telefone é obrigatório.');
+      return;
+    }
+    if (!regex.test(email)) {
+      this.showAlert('Erro', 'Email inválido.');
+      return;
+    }
+    if (!senha) {
+      this.showAlert('Erro', 'Senha é obrigatória.');
+      return;
+    }
+    if (senha !== repetirSenha) {
+      this.showAlert('Erro', 'As senhas não coincidem.');
+      return;
+    }
+  
+    this.showAlert('Registro', 'Parabéns, você se registrou com sucesso!');
+  
+    const { navigation } = this.props;
+    navigation.navigate('AnimaisDisponiveisAbrigo');
+  };
+  
+  showAlert = (title, message) => {
+    if (Platform.OS === 'web') {
+      window.alert(message); 
+    } else {
+      Alert.alert(title, message); 
+    }
+  };
+  
 
   render() {
 
@@ -101,14 +82,14 @@ class AbrigoRegistrationScreen extends Component {
         <View style={styles.registrationContainer}>
           <Text style={styles.title}>Cadastro de Abrigo</Text>
           <View style={styles.container2}>
-            <br></br>
-            <br></br>
+            
             <TextInput
               style={styles.input}
               placeholder="Nome da Instituição"
               value={this.state.nomeInstituicao}
               onChangeText={this.setNomeInstituicao}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Telefone"
@@ -116,6 +97,7 @@ class AbrigoRegistrationScreen extends Component {
               value={this.state.telefone}
               onChangeText={this.setTelefone}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -123,64 +105,70 @@ class AbrigoRegistrationScreen extends Component {
               value={this.state.email}
               onChangeText={this.setEmail}
             />
-            <br></br>
             
             <TextInput
-              style={styles.input}
+              style={[styles.input, {marginTop: 35}]}
               placeholder="CEP"
               keyboardType="numeric"
               value={this.state.cep}
               onChangeText={this.setCep}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Cidade"
               value={this.state.cidade}
               onChangeText={this.setCidade}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Estado"
               value={this.state.estado}
               onChangeText={this.setEstado}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Bairro"
               value={this.state.bairro}
               onChangeText={this.setBairro}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Rua"
               value={this.state.rua}
               onChangeText={this.setRua}
             />
+
             <TextInput
               style={styles.input}
               placeholder="Número"
               value={this.state.numero}
               onChangeText={this.setNumero}
             />
-            <br></br>
+
             <TextInput
-              style={styles.input}
+              style={[styles.input, {marginTop: 35}]}
               placeholder="Senha"
               value={this.state.senha}
               onChangeText={this.setSenha}
               secureTextEntry={true}
             />
+            
             <TextInput
-              style={styles.input}
+              style={[styles.input, {marginBottom: 35}]}
               placeholder="Repetir Senha"
               value={this.state.repetirSenha}
               onChangeText={this.setRepetirSenha}
               secureTextEntry={true}
             />
-            <br></br>
+
             <TouchableOpacity style={styles.button1} onPress={this.handleAbrigoRegistration}>
               <Text style={styles.buttonText1}>Criar Conta</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
               <Text style={styles.buttonText2}>Cancelar</Text>
             </TouchableOpacity>
@@ -202,8 +190,8 @@ const styles = StyleSheet.create({
     container2:{
       display: 'flex',
       alignItems: "center",
-      width: "380px",
-      height: "800px",
+      width: 340,
+      height: 930,
       backgroundColor: '#ECE6F0',
       borderRadius: 10,
       borderWidth: 1,
@@ -235,10 +223,10 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: "24px",
+      fontSize: 24,
       fontWeight: 'bold',
       marginBottom: 5,
-      marginTop: 5,
+      marginTop: 50,
       textAlign: 'center',
     },
   
@@ -253,6 +241,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       height: 50,
       width: 300,
+      top: 25,
       borderWidth: 1,
       borderColor: '#B3B3B3',
       padding: 5,
@@ -265,17 +254,17 @@ const styles = StyleSheet.create({
       marginBottom: 10,
     },
   
-    button: {
-      backgroundColor: '#F5F5F5',
-      height: 50,
-      width: 250,
-      padding: 10,
-      borderRadius: 16,
-      marginBottom: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+    // button: {
+    //   backgroundColor: '#F5F5F5',
+    //   height: 50,
+    //   width: 250,
+    //   padding: 10,
+    //   borderRadius: 16,
+    //   marginBottom: 10,
+    //   flexDirection: 'row',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    // },
   
     buttonIcon: {
       marginRight: 10,
@@ -284,12 +273,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button1: {
@@ -297,6 +286,7 @@ const styles = StyleSheet.create({
       height: 44,
       width: 272,
       padding: 10,
+      top: 25,
       borderRadius: 16,
       marginBottom: 10,
       flexDirection: 'row',
@@ -306,7 +296,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button2: {
@@ -314,6 +304,7 @@ const styles = StyleSheet.create({
       height: 44,
       width: 272,
       padding: 10,
+      top: 25,
       borderRadius: 16,
       marginBottom: 10,
       flexDirection: 'row',

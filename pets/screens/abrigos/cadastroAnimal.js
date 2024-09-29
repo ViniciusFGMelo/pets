@@ -1,4 +1,4 @@
-import {React, Component } from 'react';
+import React, {Component } from 'react';
 import { View, TextInput, TouchableOpacity, Text, ScrollView, Alert, StyleSheet,Platform } from 'react-native';
 
 class CadastroAnimal extends Component {
@@ -80,12 +80,9 @@ class CadastroAnimal extends Component {
         <View style={styles.registrationContainer}>
           <Text style={styles.title}>Cadastro de Animais</Text>
           <View style={styles.container2}>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+
             <TextInput
-              style={styles.input}
+              style={[styles.input, {marginTop: 50}]}
               placeholder="Nome"
               value={this.state.nome}
               onChangeText={this.setNome}
@@ -133,16 +130,12 @@ class CadastroAnimal extends Component {
               value={this.state.info_vacinacao}
               onChangeText={this.setInfoVacinacao}
             />
-            <br></br><br></br>
 
-            <TouchableOpacity style={styles.buttonAdc} onPress={this.adicionarImagem}>
+            <TouchableOpacity style={[styles.buttonAdc, {marginTop: 20}]} onPress={this.adicionarImagem}>
               <Text style={styles.buttonText1}>Adicionar Imagem</Text>
             </TouchableOpacity>
 
-            <br></br><br></br><br></br>
-            <br></br><br></br><br></br>
-
-            <TouchableOpacity style={styles.button1} onPress={this.handleCadastroAnimal}>
+            <TouchableOpacity style={[styles.button1, {marginTop: 80}]} onPress={this.handleCadastroAnimal}>
               <Text style={styles.buttonText1}>Criar Conta</Text>
             </TouchableOpacity>
 
@@ -167,12 +160,12 @@ const styles = StyleSheet.create({
     container2:{
       display: 'flex',
       alignItems: "center",
-      width: "380px",
-      height: "800px",
-      backgroundColor: '#F5F5F5',
+      width: 340,
+      height: 750,
+      marginBottom: 10,
+      marginTop: 10,
+      backgroundColor: 'white',
       borderRadius: 10,
-      borderWidth: 1,
-      borderColor: "#D9D9D9",
       overflow: 'hidden',
       marginHorizontal: 10,
       alignItems: "center",
@@ -200,7 +193,7 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: "24px",
+      fontSize: 24,
       fontWeight: 'bold',
       marginTop: 50,
       marginBottom: 5,
@@ -249,12 +242,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button1: {
@@ -271,7 +264,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button2: {

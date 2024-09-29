@@ -51,7 +51,10 @@ const AnimaisDisponiveis = ({ navigation }) => {
             data={dogs}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <View style={styles.dogContainer}>
+              <TouchableOpacity
+                style={styles.dogContainer}
+                onPress={() => navigation.navigate('InfoAnimal', { animal: item })}
+              >
                 <Image source={item.image} style={styles.image} />
                 <View style={styles.infoContainer}>
                   <View>
@@ -61,7 +64,7 @@ const AnimaisDisponiveis = ({ navigation }) => {
                     <Text style={styles.location}>{item.location}</Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>
@@ -81,7 +84,8 @@ const styles = StyleSheet.create({
   container2: {
     display: 'flex',
     alignItems: "center",
-    width: '450px',
+    width: 340,
+    height: 'auto',
     marginBottom: 10,
     backgroundColor: 'white',
     overflow: 'hidden',
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24, // Ajuste para número
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 30,
     marginTop: 40,
     textAlign: 'center',
   },
@@ -122,8 +126,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     display: 'flex',
     alignItems: "center",
-    width: '400px',
-    height: '370px',
+    width: 320,
+    height: 220,
     marginBottom: 10,
     backgroundColor: '#D9D9D9',
     borderRadius: 10,
@@ -134,8 +138,8 @@ const styles = StyleSheet.create({
 
   image: {
     marginTop: 12,
-    width: 370,
-    height: 300,
+    width: 300,
+    height: 150,
   },
 
   infoContainer: {
@@ -148,12 +152,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 5,
-    right: 45,
+    right: 15,
     top: 10,
   },
 
   location: {
-    left: 45,
+    left: 15,
     fontSize: 15,
     top: 10,
     color: '#555',

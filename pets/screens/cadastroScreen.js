@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     title: {
-        fontSize: 24, // Ajuste para número
+        fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 100,
         textAlign: 'center',
