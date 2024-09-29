@@ -1,7 +1,6 @@
-import {React, Component } from 'react';
+import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, Alert, StyleSheet, Platform } from 'react-native';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'; // Import correto para React Native
 import { faPlayCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -32,26 +31,20 @@ class LoginScreen extends Component {
 
   handleLogin = () => {
     const { email, password } = this.state;
+    const { navigation } = this.props;  // Adicione isso para acessar a navegação
     if (email === 'test@email.com' && password === 'test') {
-      if (Platform.OS === 'web') {
-        window.alert('Sucesso! ' , 'Login realizado com sucesso!');
-      } else {
-        Alert.alert('Sucesso!', 'Login realizado com sucesso!');
-      }
+      navigation.navigate('AnimaisDisponiveis');
     } else {
-      if (Platform.OS === 'web') {
-        window.alert('Erro! ', 'Email ou senha incorretos!');
-      } else {
-        Alert.alert('Erro!', 'Email ou senha incorretos!');
-      }
+      Alert.alert('Erro!', 'Email ou senha incorretos!');
     }
   };
+  
 
   isEmailValid = () => {
     const { email, password } = this.state;
-    const regex = /^.+@email\.com$/
+    const regex = /^.+@email\.com$/;
 
-    return  regex.test(email) && password.length()>=4 ;
+    return regex.test(email) && password.length >= 4;
   };
 
   render() {
@@ -63,6 +56,7 @@ class LoginScreen extends Component {
         <View style={styles.container}>
           <Text style={styles.title}>Pets</Text>
           <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
+          
           <TextInput
             style={styles.input}
             placeholder="email"
@@ -70,7 +64,7 @@ class LoginScreen extends Component {
             value={email}
           />
           <TouchableOpacity onPress={this.clearEmail}>
-            <Image source={require("../assets/images/iconl.png")} style={styles.image}/>
+            <Image source={require("../assets/images/iconl.png")} style={styles.image} />
           </TouchableOpacity>
           
           <TextInput
@@ -81,50 +75,20 @@ class LoginScreen extends Component {
             secureTextEntry={true}
           />
           <TouchableOpacity onPress={this.clearPassword}>
-            <Image source={require("../assets/images/iconl.png")} style={styles.image}/>
+            <Image source={require("../assets/images/iconl.png")} style={styles.image} />
           </TouchableOpacity>
 
           <Text style={styles.error}>
             {email !== '' && password !== '' && !this.isEmailValid() ? 'Email ou senha incorretos' : ''}
           </Text>
           <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-            <FontAwesomeIcon icon={faPlayCircle} size={20} color="#65558F" style={styles.buttonIcon} />
+            <FontAwesomeIcon icon={faPlayCircle} size={24} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Entrar</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Registration')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
+            <FontAwesomeIcon icon={faUser} size={24} color="#65558F" style={styles.buttonIcon} />
             <Text style={styles.buttonText}>Primeiro Acesso</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('BuscaAnimais')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Buscar Animais/Abrigo</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('InfoAnimal')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Informações do Animal</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CadastroAnimal')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Cadastro Animal</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EdicaoAnimal')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Edicao Animal</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveis')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Animais Disponíveis</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AnimaisDisponiveisAbrigo')}>
-            <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
-            <Text style={styles.buttonText}>Animais Disponíveis Abrigo</Text>
           </TouchableOpacity>
 
         </View>
@@ -163,7 +127,7 @@ const styles = StyleSheet.create({
     },
   
     title: {
-      fontSize: "32px",
+      fontSize: 32,
       marginBottom: 30,
       marginTop: 120,
       textAlign: 'center',
@@ -207,12 +171,12 @@ const styles = StyleSheet.create({
   
     buttonText: {
       color: '#65558F',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     buttonText1: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button1: {
@@ -229,7 +193,7 @@ const styles = StyleSheet.create({
   
     buttonText2: {
       color: 'white',
-      fontSize: "16px",
+      fontSize: 16,
     },
   
     button2: {
@@ -253,7 +217,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
 
-    image:{
+    image: {
       width: 25,
       height: 25,
       left: 130,
