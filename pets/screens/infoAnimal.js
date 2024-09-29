@@ -16,17 +16,20 @@ const InfoAnimal = ({ route }) => {
         <View>
           <Image source={require("../assets/images/osso2.png")} style={styles.osso2} />
         </View>
-        <Text style={styles.name}>{animal.name}</Text>
-        <Text style={styles.status}>Disponível</Text>
-        <Text style={styles.detail}>Porte: Pequeno</Text>
-        <Text style={styles.detail}>Idade: 1 ano</Text>
-        <Text style={styles.detail}>Raça: Salsicha</Text>
-        <Text style={styles.detail}>Vacinação: Em dia</Text>
-        <Text style={styles.detail}>Sexo: Masculino</Text>
-        <Text style={styles.detail}>Peso: 5 kg;</Text>
-        <Text style={styles.detail}>Abrigo: Eldorado</Text>
-        <Text style={styles.detail}>Telefone: (32) 3232-3232</Text>
-        <Text style={styles.detail}>Email: el_dorado@abrigo.com.br</Text>
+
+          <View style={styles.textContainer}>
+            <Text style={styles.name}>{animal.name}</Text>
+            <Text style={styles.status}>Disponível</Text>
+          </View>
+          <Text style={styles.detail}>Porte: Pequeno</Text>
+          <Text style={styles.detail}>Idade: 1 ano</Text>
+          <Text style={styles.detail}>Raça: Salsicha</Text>
+          <Text style={styles.detail}>Vacinação: Em dia</Text>
+          <Text style={styles.detail}>Sexo: Masculino</Text>
+          <Text style={styles.detail}>Peso: 5 kg;</Text>
+          <Text style={styles.detail}>Abrigo: Eldorado</Text>
+          <Text style={styles.detail}>Telefone: (32) 3232-3232</Text>
+          <Text style={styles.detail}>Email: el_dorado@abrigo.com.br</Text>
       </View>
     </View>
   );
@@ -69,20 +72,23 @@ const styles = StyleSheet.create({
         backgroundColor: "#F5F5F5"
     },
 
-    name: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 10,
-        left: 100,
-        bottom: 60,
+    textContainer: {
+      alignItems: 'center',
+      bottom: 60
     },
-
+  
+    name: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 10,
+      textAlign: 'center', 
+    },
+  
     status: {
-        fontSize: 15,
-        color: 'green',
-        marginBottom: 10,
-        left: 115,
-        bottom: 60,
+      fontSize: 15,
+      color: 'green',
+      marginBottom: 10,
+      textAlign: 'center',
     },
 
     detail: {
