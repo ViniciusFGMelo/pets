@@ -45,15 +45,17 @@ class BuscaAnimais extends Component {
 
     handleBuscaAnimal = () => {
         const { nomeInstituicao, cidade, bairro, raca, porte, sexo, idade } = this.state;
-
-        // Aqui você pode implementar a lógica de busca de animais
+        const { navigation } = this.props; 
+    
         if (Platform.OS === 'web') {
-            window.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
-        }
-        else {
             Alert.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
+            navigation.navigate('AnimaisDisponiveis');
+        } else {
+            Alert.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
+            navigation.navigate('AnimaisDisponiveis');
         }
     };
+    
 
     render() {
         const { navigation } = this.props;

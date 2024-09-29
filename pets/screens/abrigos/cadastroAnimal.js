@@ -49,7 +49,7 @@ class CadastroAnimal extends Component {
     const { navigation } = this.props;
 
 
-    // Validações simples
+
     if (!nome || !porte || !idade || !raca || !sexo ||!peso || !info_vacinacao ) {
         if (Platform.OS === 'web') {
             window.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
@@ -59,7 +59,7 @@ class CadastroAnimal extends Component {
       return;
     }
 
-    // TO DO: implementar a lógica de registro do abrigo
+  
 
     if (Platform.OS === 'web') {
         window.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
@@ -68,7 +68,7 @@ class CadastroAnimal extends Component {
       {
         Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
       }
-      navigation.goBack(); // Retorna à tela anterior após o registro
+      navigation.goBack(); 
     };
 
   render() {

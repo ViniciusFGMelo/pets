@@ -1,13 +1,13 @@
-import {React, Component } from 'react';
+import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 class RegistrationScreen extends Component {
-
     constructor(props) {
         super(props);
     }
+
     render() {
         const { navigation } = this.props;
 
@@ -16,17 +16,25 @@ class RegistrationScreen extends Component {
                 <Image source={require('../assets/images/dog2.png')} style={styles.icon} />
                 <Text style={styles.title}>Seleção de Perfil</Text>
 
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AbrigoRegistration')}>
+                <TouchableOpacity 
+                    style={styles.button} 
+                    onPress={() => navigation.navigate('AbrigoRegistration')}
+                    accessibilityLabel="Registro de Abrigo"
+                    accessible
+                >
                     <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
                     <Text style={styles.buttonText}>Abrigo</Text>
                 </TouchableOpacity>
-                <br></br>
+
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
                         console.log("Navigating to AdotanteRegistration");
                         navigation.navigate('AdotanteRegistration');
-                    }}>
+                    }}
+                    accessibilityLabel="Registro de Adotante"
+                    accessible
+                >
                     <FontAwesomeIcon icon={faUser} size={20} color="#65558F" style={styles.buttonIcon} />
                     <Text style={styles.buttonText}>Quero adotar</Text>
                 </TouchableOpacity>
@@ -44,7 +52,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     title: {
-        fontSize: "24px",
+        fontSize: 24, // Ajuste para número
         fontWeight: 'bold',
         marginBottom: 100,
         textAlign: 'center',
@@ -67,11 +75,10 @@ const styles = StyleSheet.create({
     },
     buttonIcon: {
         marginRight: 10,
-        color: '#65558F',
     },
     buttonText: {
         color: '#65558F',
-        fontSize: "16px",
+        fontSize: 16, 
     },
 });
 

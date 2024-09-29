@@ -15,12 +15,12 @@ const dogs = [
   },
   { 
     id: '3', 
-    name: 'First-Follow', // Nome alterado
+    name: 'First-Follow',
     image: require('../../assets/images/dog8.png') 
   },
   { 
     id: '4', 
-    name: 'Francisco', // Nome alterado
+    name: 'Francisco',
     image: require('../../assets/images/cat1.png') 
   },
 ];

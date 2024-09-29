@@ -71,7 +71,7 @@ class AbrigoRegistrationScreen extends Component {
     const { navigation } = this.props;
 
 
-    // Validações simples
+  
     if (!nomeInstituicao || !telefone || !regex.test(email) || !senha || senha !== repetirSenha) {
         if (Platform.OS === 'web') {
             window.alert('Erro', 'Por favor, preencha todos os campos corretamente.');
@@ -81,7 +81,6 @@ class AbrigoRegistrationScreen extends Component {
       return;
     }
 
-    // TO DO: implementar a lógica de registro do abrigo
 
         if (Platform.OS === 'web') {
             window.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
@@ -90,7 +89,7 @@ class AbrigoRegistrationScreen extends Component {
           {
             Alert.alert('Registro!', 'Parabéns, você se registrou com sucesso!');
           }
-          navigation.goBack(); // Retorna à tela anterior após o registro
+          navigation.goBack();
     };
 
   render() {
@@ -125,7 +124,7 @@ class AbrigoRegistrationScreen extends Component {
               onChangeText={this.setEmail}
             />
             <br></br>
-            <br></br>
+            
             <TextInput
               style={styles.input}
               placeholder="CEP"
@@ -163,7 +162,6 @@ class AbrigoRegistrationScreen extends Component {
               value={this.state.numero}
               onChangeText={this.setNumero}
             />
-            <br></br>
             <br></br>
             <TextInput
               style={styles.input}
@@ -240,7 +238,7 @@ const styles = StyleSheet.create({
       fontSize: "24px",
       fontWeight: 'bold',
       marginBottom: 5,
-      marginTop: 50,
+      marginTop: 5,
       textAlign: 'center',
     },
   
@@ -257,7 +255,7 @@ const styles = StyleSheet.create({
       width: 300,
       borderWidth: 1,
       borderColor: '#B3B3B3',
-      padding: 10,
+      padding: 5,
       marginBottom: 10,
       borderRadius: 5,
     },
