@@ -31,7 +31,7 @@ class LoginScreen extends Component {
 
   handleLogin = () => {
     const { email, password } = this.state;
-    const { navigation } = this.props;  // Adicione isso para acessar a navegação
+    const { navigation } = this.props; 
     if (email === 'test@email.com' && password === 'test') {
       navigation.navigate('AnimaisDisponiveis');
     } else {

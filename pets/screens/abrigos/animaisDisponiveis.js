@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24, // Ajuste para número
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 30,
     marginTop: 40,
@@ -104,16 +104,16 @@ const styles = StyleSheet.create({
   searchButton: {
     backgroundColor: '#65558F',
     padding: 10,
-    borderRadius: 8, // Ângulo menor
+    borderRadius: 8,
     marginBottom: 20,
-    width: 200, // Largura do botão
-    flexDirection: 'row', // Para alinhar ícone e texto
-    alignItems: 'center', // Alinha verticalmente o ícone e texto
-    justifyContent: 'center', // Centraliza o conteúdo
+    width: 200,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   searchIcon: {
-    marginRight: 10, // Espaçamento entre o ícone e o texto
+    marginRight: 10,
   },
 
   buttonText: {

@@ -17,7 +17,7 @@ const App = () => {
   return (
       <Stack.Navigator 
         initialRouteName="Login"
-        screenOptions={{ headerShown: false }} // Desativa o header em todas as telas
+        screenOptions={{ headerShown: false }}
       >
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Registration" component={RegistrationScreen} />

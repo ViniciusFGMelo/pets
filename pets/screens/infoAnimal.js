@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
 const InfoAnimal = ({ route }) => {
-  const { animal } = route.params; // Recebe o animal da navegação
+  const { animal } = route.params;
 
   return (
     <View style={styles.container}>
