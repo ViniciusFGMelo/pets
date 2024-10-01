@@ -61,10 +61,8 @@ class AdotanteRegistrationScreen extends Component {
           return;
         }
       
-        // Exibe mensagem de sucesso
         this.showAlert('Registro', 'Parabéns, você se registrou com sucesso!');
       
-        // Navega para a tela de "AnimaisDisponiveis"
         const { navigation } = this.props;
         navigation.navigate('AnimaisDisponiveis');
       };

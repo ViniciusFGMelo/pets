@@ -210,18 +210,6 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
 
-    // button: {
-    //     backgroundColor: '#F5F5F5',
-    //     height: 50,
-    //     width: 250,
-    //     padding: 10,
-    //     borderRadius: 16,
-    //     marginBottom: 10,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
-
     buttonIcon: {
         marginRight: 10,
         color: '#65558F',
