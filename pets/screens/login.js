@@ -35,10 +35,15 @@ class LoginScreen extends Component {
     if (email === 'test@email.com' && password === 'test') {
       navigation.navigate('AnimaisDisponiveis');
     } else {
-      Alert.alert('Erro!', 'Email ou senha incorretos!');
+      if (Platform.OS === "web") {
+        window.alert('Erro!', 'Email ou senha incorretos!')
+      }
+      else {
+        Alert.alert('Erro!', 'Email ou senha incorretos!');
+      }
     }
   };
-  
+
 
   isEmailValid = () => {
     const { email, password } = this.state;
@@ -56,7 +61,7 @@ class LoginScreen extends Component {
         <View style={styles.container}>
           <Text style={styles.title}>Pets</Text>
           <Image source={require('../assets/images/dog1.png')} style={styles.icon} />
-          
+
           <TextInput
             style={styles.input}
             placeholder="email"
@@ -66,7 +71,7 @@ class LoginScreen extends Component {
           <TouchableOpacity onPress={this.clearEmail}>
             <Image source={require("../assets/images/iconl.png")} style={styles.image} />
           </TouchableOpacity>
-          
+
           <TextInput
             style={styles.input}
             placeholder="senha"
@@ -98,131 +103,131 @@ class LoginScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#ECDFCC',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-    loginContainer: {
-      width: '100%',
-      backgroundColor: '#fff',
-      padding: 20,
-      borderRadius: 10,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-    },
-  
-    registrationContainer: {
-      backgroundColor: '#ECE6F0',
-      flex: 1,
-      flexDirection: 'column',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-    title: {
-      fontSize: 32,
-      marginBottom: 30,
-      marginTop: 120,
-      textAlign: 'center',
-    },
-  
-    icon: {
-      marginBottom: 150,
-      width: 180,
-      height: 180,
-    },
-  
-    input: {
-      height: 50,
-      width: 300,
-      borderBottomWidth: 1,
-      backgroundColor: '#E6E0E9',
-      padding: 10,
-    },
-  
-    error: {
-      color: 'red',
-      marginBottom: 10,
-    },
-  
-    button: {
-      backgroundColor: '#F5F5F5',
-      height: 50,
-      width: 250,
-      padding: 10,
-      borderRadius: 16,
-      marginBottom: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-    buttonIcon: {
-      marginRight: 10,
-      color: '#65558F',
-    },
-  
-    buttonText: {
-      color: '#65558F',
-      fontSize: 16,
-    },
-  
-    buttonText1: {
-      color: 'white',
-      fontSize: 16,
-    },
-  
-    button1: {
-      backgroundColor: '#2c2c2c',
-      height: 50,
-      width: 250,
-      padding: 10,
-      borderRadius: 16,
-      marginBottom: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-    buttonText2: {
-      color: 'white',
-      fontSize: 16,
-    },
-  
-    button2: {
-      backgroundColor: '#EC221F',
-      height: 50,
-      width: 250,
-      padding: 10,
-      borderRadius: 16,
-      marginBottom: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  
-    buscaContainer: {
-      padding: 50,
-      flex: 1,
-      flexDirection: 'column',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#ECDFCC',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    image: {
-      width: 25,
-      height: 25,
-      left: 130,
-      bottom: 35,
-    }
-  });
+  loginContainer: {
+    width: '100%',
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+
+  registrationContainer: {
+    backgroundColor: '#ECE6F0',
+    flex: 1,
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  title: {
+    fontSize: 32,
+    marginBottom: 30,
+    marginTop: 120,
+    textAlign: 'center',
+  },
+
+  icon: {
+    marginBottom: 150,
+    width: 180,
+    height: 180,
+  },
+
+  input: {
+    height: 50,
+    width: 300,
+    borderBottomWidth: 1,
+    backgroundColor: '#E6E0E9',
+    padding: 10,
+  },
+
+  error: {
+    color: 'red',
+    marginBottom: 10,
+  },
+
+  button: {
+    backgroundColor: '#F5F5F5',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buttonIcon: {
+    marginRight: 10,
+    color: '#65558F',
+  },
+
+  buttonText: {
+    color: '#65558F',
+    fontSize: 16,
+  },
+
+  buttonText1: {
+    color: 'white',
+    fontSize: 16,
+  },
+
+  button1: {
+    backgroundColor: '#2c2c2c',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buttonText2: {
+    color: 'white',
+    fontSize: 16,
+  },
+
+  button2: {
+    backgroundColor: '#EC221F',
+    height: 50,
+    width: 250,
+    padding: 10,
+    borderRadius: 16,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  buscaContainer: {
+    padding: 50,
+    flex: 1,
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  image: {
+    width: 25,
+    height: 25,
+    left: 130,
+    bottom: 35,
+  }
+});
 
 export default LoginScreen;
