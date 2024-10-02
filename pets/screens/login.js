@@ -52,7 +52,7 @@ class LoginScreen extends Component {
     const { navigation } = this.props;
 
     return (
-      <ScrollView>
+      <ScrollView style={{backgroundColor: '#ECDFCC'}}>
         <View style={styles.container}>
           <Text style={styles.title}>Pets</Text>
           <Image source={require('../assets/images/dog1.png')} style={styles.icon} />

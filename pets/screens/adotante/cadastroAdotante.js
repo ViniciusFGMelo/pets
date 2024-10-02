@@ -5,19 +5,19 @@ class AdotanteRegistrationScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          nome: '',
-          nascimento: '',
-          sexo: '',
-          telefone: '',
-          email: '',
-          cep: '',
-          cidade: '',
-          estado: '',
-          bairro: '',
-          rua: '',
-          numero: '',
-          senha: '',
-          repetirSenha: '',
+          nome: 'Carlos',
+          nascimento: '19/08/1997',
+          sexo: 'Masculino',
+          telefone: '32323232',
+          email: 'ex@email.com',
+          cep: '12345678',
+          cidade: 'Juiz de Fora',
+          estado: 'MG',
+          bairro: 'Cascatinha',
+          rua: 'Ladeira Alexandre Leonel',
+          numero: '150',
+          senha: '123',
+          repetirSenha: '123',
         };
       }
       

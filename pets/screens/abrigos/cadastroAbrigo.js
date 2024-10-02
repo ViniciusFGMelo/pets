@@ -5,14 +5,14 @@ class AbrigoRegistrationScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nomeInstituicao: 'qwe',
-      telefone: '32',
+      nomeInstituicao: 'Animal Contigo',
+      telefone: '32323232',
       email: 'test@email.com',
-      cep: '123',
-      cidade: 'qwe',
-      estado: 'qwe',
-      bairro: 'qwe',
-      rua: 'qwe',
+      cep: '12345678',
+      cidade: 'Juiz de Fora',
+      estado: 'MG',
+      bairro: 'Centro',
+      rua: 'Santo Antônio',
       numero: '123',
       senha: '123',
       repetirSenha: '123',

@@ -5,13 +5,13 @@ class CadastroAnimal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nome: '',
-      porte: '',
-      idade: '',
-      raca: '',
-      sexo: '',
-      peso: '',
-      info_vacinacao: '',
+      nome: 'Pitoco',
+      porte: 'Médio',
+      idade: '2',
+      raca: 'Vira lata',
+      sexo: 'M',
+      peso: '1.5',
+      info_vacinacao: 'Vacinação em dia',
     };
   }
 
@@ -136,7 +136,7 @@ class CadastroAnimal extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity style={[styles.button1, {marginTop: 80}]} onPress={this.handleCadastroAnimal}>
-              <Text style={styles.buttonText1}>Criar Conta</Text>
+              <Text style={styles.buttonText1}>Cadastrar Animal</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button2} onPress={() => navigation.goBack()}>
