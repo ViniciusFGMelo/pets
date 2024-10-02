@@ -48,7 +48,7 @@ class BuscaAnimais extends Component {
         const { navigation } = this.props; 
     
         if (Platform.OS === 'web') {
-            Alert.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
+            window.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
             navigation.navigate('AnimaisDisponiveis');
         } else {
             Alert.alert('Busca Sucedida!', `Instituição: ${nomeInstituicao}\nCidade: ${cidade}\nBairro: ${bairro}\nRaça: ${raca}\nPorte: ${porte}\nSexo: ${sexo}\nIdade: ${idade}`);
@@ -209,18 +209,6 @@ const styles = StyleSheet.create({
         color: 'red',
         marginBottom: 10,
     },
-
-    // button: {
-    //     backgroundColor: '#F5F5F5',
-    //     height: 50,
-    //     width: 250,
-    //     padding: 10,
-    //     borderRadius: 16,
-    //     marginBottom: 10,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
 
     buttonIcon: {
         marginRight: 10,

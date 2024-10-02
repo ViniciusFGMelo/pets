@@ -13,7 +13,7 @@ class EdicaoAnimal extends Component {
       sexo: '',
       peso: '',
       info_vacinacao: '',
-      statusAdocao: 'Disponível', // Definindo um valor padrão
+      statusAdocao: 'Disponível',
     };
   }
 
@@ -42,8 +42,7 @@ class EdicaoAnimal extends Component {
   };
 
   adicionarImagem = () => {
-    // Adicione sua lógica para alterar a imagem aqui.
-    Alert.alert('Função não implementada', 'Você pode adicionar a lógica para alterar a imagem aqui.');
+    Alert.alert('Função não implementada');
   };
 
   render() {
@@ -280,7 +279,7 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: 'black',
       borderRadius: 5,
-      overflow: 'hidden', // Garante que a borda seja visível
+      overflow: 'hidden',
       marginBottom: 10,
     },
     
